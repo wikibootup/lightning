@@ -1,0 +1,22 @@
+{
+  "name": "lightning",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "npm run install",
+    "install": "npm run server-install && npm run client-install",
+    "server-install": "npm --prefix server install",
+    "client-install": "npm --prefix client install"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wikibootup/lightning.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/wikibootup/lightning/issues"
+  },
+  "homepage": "https://github.com/wikibootup/lightning#readme"
+}
