@@ -4,11 +4,13 @@
   "description": "",
   "main": "server/app.js",
   "scripts": {
-    "start": "npm run install && concurrently --kill-others \"npm run client-start\" \"npm run server-start\"",
+    "start": "npm run install && npm run build && npm run server-start",
     "install": "npm run server-install && npm run client-install",
     "server-install": "npm --prefix server install",
     "client-install": "npm --prefix client install",
-    "client-start": "npm --prefix client start",
+    "build": "npm run client-build",
+    "client-build": "cd client && ng build --prod --sm=false --aot=true --output-path=../dist/client",
+    "client-start": "cd client && ng serve",
     "server-start": "nodemon server/bin/www"
   },
   "repository": {
