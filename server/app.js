@@ -7,7 +7,12 @@ var bodyParser = require('body-parser');
 
 var index = require('./routes/index');
 
+var passport = require('./auth/passport');
+
 var app = express();
+
+// Configure Passport Strategy
+passport.configureThingplusStrategy('thingplus');
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
