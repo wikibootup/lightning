@@ -14,10 +14,8 @@ Passport.prototype.configureSession = function() {
     cb(null, user);
   });
   
-  this.passport.deserializeUser(function(id, cb) {
-    User.findById(id, function(err, user) {
-      cb(err, user);
-    });
+  this.passport.deserializeUser(function(user, cb) {
+    cb(null, user);
   });
 }
  
@@ -34,23 +32,21 @@ Passport.prototype.configureThingplusStrategy = function(name) {
       callbackURL: process.env['CALLBACK_URL'],
     },
     function(accessToken, refreshToken, profile, cb) {
-      const userData = 
-        request(
-          Options.getThingplusOptions(
-            method='GET', resource_url='/users/me', token=accessToken
-          ), 
-          function (error, response, body) {
-            if (error) throw new Error(error);
+      request(
+        Options.getThingplusOptions(
+          method='GET', resource_url='/users/me', token=accessToken
+        ), 
+        function (error, response, body) {
+          if (error) throw new Error(error);
+          profile = {
+            id: body['id'],
+            name: body['loginId'],
+            accessToken: accessToken
           }
-        );
-      
-      profile = {
-        id: userData.id,
-        name: userData.loginId,
-        accessToken: accessToken
-      }
 
-      cb(null, profile);
+          cb(null, profile);
+        }
+      );
     }
   ));
 };
