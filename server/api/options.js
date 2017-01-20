@@ -20,7 +20,8 @@ RequestOptions.getOptions = function(method, domain, resource_url, token) {
     headers: { 
       'cache-control': 'no-cache',
       authorization: 'Bearer ' + token 
-    }
+    },
+    json: true
   };
   return options;
 }
