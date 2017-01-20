@@ -4,15 +4,13 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var session = require('express-session');
 
 var index = require('./routes/index');
-
-var passport = require('./auth/passport');
+var Passport = require('./auth/passport');
 
 var app = express();
-
-// Configure Passport Strategy
-passport.configureThingplusStrategy('thingplus');
+var passport = new Passport();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -25,6 +23,17 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+
+app.use(session({
+  secret: process.env['SESSION_SECRET'],
+  resave: true,
+  saveUninitialized: true
+}));
+
+// Initialize middleware
+app.use(passport.passport.initialize());
+app.use(passport.passport.session());
+
 app.use('/', index);
 app.use('/', require('./auth/router'))
 
@@ -45,5 +54,9 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
+
+// Configurations 
+passport.configureSession();
+passport.configureThingplusStrategy('thingplus');
 
 module.exports = app;
