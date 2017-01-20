@@ -1,18 +1,18 @@
 var express = require('express');
-var passport = require('passport');
+var Passport = require('./passport');
 var Auth = require('./auth');
 
 var router = express.Router();
 auth = new Auth();
+var passport = new Passport();
 
 router.get('/auth/thingplus',
-  passport.authenticate('thingplus'));
+  passport.passport.authenticate('thingplus', passport.scope));
 
 router.get('/auth/thingplus/callback',
-  passport.authenticate('thingplus', { failureRedirect: '/auth/thingplus/error' }),
+  passport.passport.authenticate('thingplus', { failureRedirect: '/auth/thingplus/error' }),
     function(req, res) {
-      console.log(req.url.query);
-      res.redirect('/');
+      res.redirect('/#/dashboard');
     }
 );
 
