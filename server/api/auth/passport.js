@@ -5,10 +5,13 @@ var Options = require('../options');
 
 function Passport() {
   this.passport = passport;
-  this.scope = { scope: ["user-profile-read", "gateway-update", "timeline-read", 
-    "tag", "rule-read", "service-read", "site-read"] };
 }
 
+Passport.prototype.getThingplusScope = function() {
+  return { scope: ["user-profile-read", "gateway-update", "timeline-read", 
+    "tag", "rule-read", "service-read", "site-read"] };
+};
+ 
 Passport.prototype.configureSession = function() {
   this.passport.serializeUser(function(user, cb) {
     cb(null, user);

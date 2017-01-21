@@ -11,7 +11,7 @@ router.get('/', function(req, res) {
 });
 
 router.get('/thingplus',
-  passport.passport.authenticate('thingplus', passport.scope));
+  passport.passport.authenticate('thingplus', passport.getThingplusScope()));
 
 router.get('/thingplus/callback',
   passport.passport.authenticate('thingplus', { failureRedirect: 'api/auth/thingplus/error' }),
