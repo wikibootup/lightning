@@ -8,7 +8,7 @@
     "js": "node"
   },
   "watch": [
-    "server"
+    "./"
   ],
   "env": {
     "NODE_ENV": "development"
