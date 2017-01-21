@@ -1,9 +1,9 @@
 var express = require('express');
 var Passport = require('./passport');
-var Auth = require('./auth');
+//var Auth = require('./auth');
 
 var router = express.Router();
-auth = new Auth();
+//auth = new Auth();
 var passport = new Passport();
 
 router.get('/auth/thingplus',
