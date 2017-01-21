@@ -7,7 +7,7 @@ var router = express.Router();
 var passport = new Passport();
 
 router.get('/', function(req, res) {
-  res.json(req.user);
+  res.json(req.session.userProfile);
 });
 
 router.get('/thingplus',
@@ -16,6 +16,11 @@ router.get('/thingplus',
 router.get('/thingplus/callback',
   passport.passport.authenticate('thingplus', { failureRedirect: 'api/auth/thingplus/error' }),
     function(req, res) {
+      req.session.userProfile =  {
+        id: req.user.id,
+        name: req.user.loginId,
+      };
+
       res.redirect('/#/dashboard');
     }
 );

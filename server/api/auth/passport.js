@@ -41,11 +41,9 @@ Passport.prototype.configureThingplusStrategy = function(name) {
         ), 
         function (error, response, body) {
           if (error) throw new Error(error);
-          profile = {
-            id: body.id,
-            name: body.loginId,
-            accessToken: accessToken
-          };
+
+          profile = body;
+          profile.accessToken = accessToken;
 
           cb(null, profile);
         }
