@@ -7,7 +7,7 @@
 
 # misc
 /.sass-cache
-npm-debug.log
+npm-debug.log.*
 /typings
 
 # e2e
