@@ -2,8 +2,6 @@ var express = require('express');
 
 var router = express.Router();
 
-router.get('/auth', function(req, res) {
-  res.json(req.user);
-});
+router.use('/auth', require('./auth/router'));
 
 module.exports = router;

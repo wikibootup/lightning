@@ -7,7 +7,7 @@ var bodyParser = require('body-parser');
 var session = require('express-session');
 
 var index = require('./routes/index');
-var Passport = require('./auth/passport');
+var Passport = require('./api/auth/passport');
 
 var app = express();
 var passport = new Passport();
@@ -34,9 +34,7 @@ app.use(session({
 app.use(passport.passport.initialize());
 app.use(passport.passport.session());
 
-app.use('/', index);
-app.use('/', require('./auth/router'))
-app.use('/api', require('./api/router'))
+app.use('/api', require('./api/router'));
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

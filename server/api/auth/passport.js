@@ -1,7 +1,7 @@
 var passport = require('passport')
   , OAuth2Strategy = require('passport-oauth').OAuth2Strategy;
 var request = require('request');
-var Options = require('../api/options');
+var Options = require('../options');
 
 function Passport() {
   this.passport = passport;

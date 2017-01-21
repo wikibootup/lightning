@@ -6,11 +6,15 @@ var router = express.Router();
 //auth = new Auth();
 var passport = new Passport();
 
-router.get('/auth/thingplus',
+router.get('/', function(req, res) {
+  res.json(req.user);
+});
+
+router.get('/thingplus',
   passport.passport.authenticate('thingplus', passport.scope));
 
-router.get('/auth/thingplus/callback',
-  passport.passport.authenticate('thingplus', { failureRedirect: '/auth/thingplus/error' }),
+router.get('/thingplus/callback',
+  passport.passport.authenticate('thingplus', { failureRedirect: 'api/auth/thingplus/error' }),
     function(req, res) {
       res.redirect('/#/dashboard');
     }
