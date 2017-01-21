@@ -17,7 +17,7 @@ Passport.prototype.configureSession = function() {
   this.passport.deserializeUser(function(user, cb) {
     cb(null, user);
   });
-}
+};
  
 /**
 * Configure OAuth2 authorization for Thingplus
@@ -25,11 +25,11 @@ Passport.prototype.configureSession = function() {
 */
 Passport.prototype.configureThingplusStrategy = function(name) {
   passport.use(name, new OAuth2Strategy({
-      authorizationURL: process.env['AUTHORIZATION_URL'],
-      tokenURL: process.env['TOKEN_URL'],
-      clientID: process.env['CLIENT_ID'],
-      clientSecret: process.env['CLIENT_SECRET'],
-      callbackURL: process.env['CALLBACK_URL'],
+      authorizationURL: process.env.AUTHORIZATION_URL,
+      tokenURL: process.env.TOKEN_URL,
+      clientID: process.env.CLIENT_ID,
+      clientSecret: process.env.CLIENT_SECRET,
+      callbackURL: process.env.CALLBACK_URL,
     },
     function(accessToken, refreshToken, profile, cb) {
       request(
@@ -39,10 +39,10 @@ Passport.prototype.configureThingplusStrategy = function(name) {
         function (error, response, body) {
           if (error) throw new Error(error);
           profile = {
-            id: body['id'],
-            name: body['loginId'],
+            id: body.id,
+            name: body.loginId,
             accessToken: accessToken
-          }
+          };
 
           cb(null, profile);
         }
