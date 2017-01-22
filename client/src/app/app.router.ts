@@ -1,9 +1,8 @@
 import { Routes, RouterModule } from '@angular/router';
 
-import { DashboardComponent } from './dashboard/dashboard.component';
+import { usersRoutes } from './users/users.router';
 
 export const appRoutes: Routes = [
-  {path: 'dashboard', component: DashboardComponent}
-]
+];
 
 export const AppRouter = RouterModule.forRoot(appRoutes);
