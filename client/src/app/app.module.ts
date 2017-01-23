@@ -5,7 +5,7 @@ import { HttpModule } from '@angular/http';
 import { HashLocationStrategy, Location, LocationStrategy } from '@angular/common';
 
 import { UsersModule } from './users/users.module';
-import { CoreModule } from './core/core.module';
+import { AuthModule } from './auth/auth.module';
 import { AppComponent } from './app.component';
 import { AppRouter } from './app.router';
 
@@ -18,7 +18,7 @@ import { AppRouter } from './app.router';
     FormsModule,
     HttpModule,
     UsersModule,
-    CoreModule,
+    AuthModule,
     AppRouter
   ],
   providers: [
