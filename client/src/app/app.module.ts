@@ -6,6 +6,8 @@ import { HashLocationStrategy, Location, LocationStrategy } from '@angular/commo
 
 import { UsersModule } from './users/users.module';
 import { AuthModule } from './auth/auth.module';
+import { PagesModule } from './pages/pages.module';
+
 import { AppComponent } from './app.component';
 import { AppRouter } from './app.router';
 
@@ -19,6 +21,7 @@ import { AppRouter } from './app.router';
     HttpModule,
     UsersModule,
     AuthModule,
+    PagesModule,
     AppRouter
   ],
   providers: [
