@@ -6,6 +6,9 @@ import { AuthRouter } from './auth.router';
 import { LoginComponent } from './login/login.component';
 import { LogoutComponent } from './logout/logout.component';
 
+import { AuthGuardService }            from './shared/auth-guard.service';
+import { AuthService }          from './shared/auth.service';
+
 @NgModule({
   imports: [
     CommonModule,
@@ -14,6 +17,10 @@ import { LogoutComponent } from './logout/logout.component';
   declarations: [
     LoginComponent,
     LogoutComponent
+  ],
+  providers: [
+    AuthGuardService,
+    AuthService
   ]
 })
 

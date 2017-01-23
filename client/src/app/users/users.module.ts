@@ -1,7 +1,9 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { DashboardComponent } from './dashboard/dashboard.component';
+
 import { UsersRouter } from './users.router';
+
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 @NgModule({
   imports: [
@@ -9,8 +11,8 @@ import { UsersRouter } from './users.router';
     UsersRouter
   ],
   declarations: [
-    DashboardComponent
-  ]
+    DashboardComponent,
+  ],
 })
 
 export class UsersModule { }
