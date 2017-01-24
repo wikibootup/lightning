@@ -7,7 +7,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { HomeComponent } from './home/home.component';
 import { AuthComponent } from './auth/auth.component';
 import { LoginComponent } from './login/login.component';
-//import { LogoutCompoent } from './logout/logout.component';
+import { LogoutComponent } from './logout/logout.component';
 
 @NgModule({
   imports: [
@@ -19,7 +19,7 @@ import { LoginComponent } from './login/login.component';
     HomeComponent,
     AuthComponent,
     LoginComponent,
-//    LogoutCompoent
+    LogoutComponent,
   ]
 })
 export class PagesModule { }
