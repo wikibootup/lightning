@@ -4,14 +4,15 @@
   "description": "",
   "main": "server/app.js",
   "scripts": {
-    "start": "npm --prefix server start",
+    "start": "npm run server-start",
+    "dev-start": "concurrently --kill-others \"npm run client-dev-start\" \"npm run server-start\" ",
     "install": "npm run server-install && npm run client-install",
     "server-install": "npm --prefix server install",
     "client-install": "npm --prefix client install",
     "build": "npm run install && npm run client-build",
     "client-build": "cd client && ng build --prod --sm=false --aot=true --output-path=../dist/client",
-    "client-start": "cd client && ng serve",
-    "server-start": "nodemon server/bin/www"
+    "client-start": "npm --prefix client start",
+    "server-start": "npm --prefix server start"
   },
   "repository": {
     "type": "git",
