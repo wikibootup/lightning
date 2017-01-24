@@ -6,6 +6,7 @@ import { HashLocationStrategy, Location, LocationStrategy } from '@angular/commo
 
 import { PagesModule } from './pages/pages.module';
 import { CoreModule } from './core/core.module';
+import { ObjectsModule } from './objects/objects.module';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app.routing';
@@ -20,6 +21,7 @@ import { AppRoutingModule } from './app.routing';
     HttpModule,
     PagesModule,
     CoreModule,
+    ObjectsModule,
     AppRoutingModule
   ],
   providers: [
