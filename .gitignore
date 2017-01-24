@@ -20,3 +20,6 @@ Thumbs.db
 
 # Env Vars Conf
 .env
+
+# Log
+npm-debug.log*
