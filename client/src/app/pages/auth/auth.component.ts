@@ -3,8 +3,8 @@ import { Http, Response } from '@angular/http';
 
 import { Router } from '@angular/router';
 
-import { AuthService } from '../shared/auth.service';
-import { UserService } from '../../users/shared/user.service';
+import { AuthService } from '../../core/auth/auth.service';
+import { UserService } from '../../objects/shared/user.service';
 
 @Component({
   selector: 'app-auth',

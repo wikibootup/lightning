@@ -9,19 +9,20 @@ import { AuthService }      from './auth.service';
 @Injectable()
 export class AuthGuardService implements CanActivate {
 
+  redirect_url: string = '/api/auth/thingplus';
+
   constructor(private _authService: AuthService, private _router: Router) {}
 
   canActivate(route: ActivatedRouteSnapshot, 
                   state: RouterStateSnapshot): boolean {
-    let url: string = state.url;
 
-    return this.checkAuth(url);
+    return this.checkAuth();
   }
 
-  checkAuth(url: string): boolean {
+  checkAuth(): boolean {
     if (this._authService.isLoggedIn) { return true; }
 
-    this._router.navigate(['/login']);
+    this._router.navigate(['login']);
     return false;
   }
 

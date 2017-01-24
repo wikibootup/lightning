@@ -1,16 +1,25 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { PagesRouter } from './pages.router';
+import { PagesRoutingModule } from './pages.routing';
 
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { HomeComponent } from './home/home.component';
+import { AuthComponent } from './auth/auth.component';
+import { LoginComponent } from './login/login.component';
+//import { LogoutCompoent } from './logout/logout.component';
 
 @NgModule({
   imports: [
     CommonModule,
-    PagesRouter
+    PagesRoutingModule
   ],
-  declarations: [DashboardComponent, HomeComponent]
+  declarations: [
+    DashboardComponent, 
+    HomeComponent,
+    AuthComponent,
+    LoginComponent,
+//    LogoutCompoent
+  ]
 })
 export class PagesModule { }
