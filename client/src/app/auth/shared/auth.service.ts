@@ -3,7 +3,7 @@ import { Http, Headers, Response } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 
-import { IUser } from './user'; 
+import { IUser } from '../../users/shared/user'; 
 
 @Injectable()
 export class AuthService {
@@ -14,6 +14,12 @@ export class AuthService {
   
   getAuth(): Observable<IUser> {
     return this._http.get('/api/auth')
-      .map((res: Response) => res.json());
+      .map(this.extractData);
   }
+
+  private extractData(res: Response): IUser {
+    let data = (res.text().replace(' ', '') !== '')? res.json() : {};
+    return data;
+  }
+
 }

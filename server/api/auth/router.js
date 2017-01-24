@@ -21,7 +21,7 @@ router.get('/thingplus/callback',
         name: req.user.loginId,
       };
 
-      res.redirect('/#/dashboard');
+      res.redirect('/#/auth');
     }
 );
 
