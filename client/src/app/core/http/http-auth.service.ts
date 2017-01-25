@@ -8,12 +8,12 @@ import { IUser } from '../../objects/shared/user.model';
 export class HttpAuthService {
 
   isLoggedIn: boolean = false;
-  private auth_Url: string = '/api/auth';
+  private authUrl: string = '/api/auth';
 
   constructor(private _httpService: HttpService) { }
   
   getAuth(): Observable<IUser> {
-    return this._httpService.getHttp(this.auth_Url);
+    return this._httpService.getHttp(this.authUrl);
   }
 
 }
