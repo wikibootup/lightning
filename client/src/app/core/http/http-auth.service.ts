@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 
-import { HttpService } from '../http/http.service';
+import { HttpService } from './http.service';
 import { IUser } from '../../objects/shared/user.model'; 
 
 @Injectable()
-export class AuthService {
+export class HttpAuthService {
 
   isLoggedIn: boolean = false;
   private auth_Url: string = '/api/auth';
@@ -17,3 +17,4 @@ export class AuthService {
   }
 
 }
+

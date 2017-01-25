@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { AuthService } from '../../core/auth/auth.service';
+import { HttpAuthService } from '../../core/http/http-auth.service';
 
 @Component({
   selector: 'app-login',
@@ -13,10 +13,10 @@ export class LoginComponent implements OnInit {
   private authUri: string = '/api/auth/thingplus';
 
   constructor(private _router: Router,
-              private _authService: AuthService) { }
+              private _httpAuthService: HttpAuthService) { }
 
   ngOnInit() {
-    if(this._authService.isLoggedIn) {
+    if(this._httpAuthService.isLoggedIn) {
       this._router.navigate(['/']);
     }
     else {

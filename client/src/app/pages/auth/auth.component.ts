@@ -3,7 +3,7 @@ import { Http, Response } from '@angular/http';
 
 import { Router } from '@angular/router';
 
-import { AuthService } from '../../core/auth/auth.service';
+import { HttpAuthService } from '../../core/http/http-auth.service';
 import { UserService } from '../../objects/shared/user.service';
 
 @Component({
@@ -13,7 +13,7 @@ import { UserService } from '../../objects/shared/user.service';
 })
 export class AuthComponent implements OnInit {
 
-  constructor(private _authService: AuthService,
+  constructor(private _httpAuthService: HttpAuthService,
               private _userService: UserService,
               private _router: Router) { }
 
@@ -22,11 +22,11 @@ export class AuthComponent implements OnInit {
   }
   
   updateAuth() {
-    this._authService.getAuth()
+    this._httpAuthService.getAuth()
       .subscribe(data => {
         if(data !== {} && data.hasOwnProperty('id') && data.hasOwnProperty('name')) {
           this._userService.user = data;
-          this._authService.isLoggedIn = true;
+          this._httpAuthService.isLoggedIn = true;
           this._router.navigate(['dashboard']);
         }
         else {

@@ -4,14 +4,15 @@ import {
   ActivatedRouteSnapshot,
   RouterStateSnapshot
 }                           from '@angular/router';
-import { AuthService }      from './auth.service';
+import { HttpAuthService }      from '../http/http-auth.service';
 
 @Injectable()
 export class AuthGuardService implements CanActivate {
 
   redirect_url: string = '/api/auth/thingplus';
 
-  constructor(private _authService: AuthService, private _router: Router) {}
+  constructor(private _httpAuthService: HttpAuthService, 
+              private _router: Router) {}
 
   canActivate(route: ActivatedRouteSnapshot, 
                   state: RouterStateSnapshot): boolean {
@@ -20,7 +21,7 @@ export class AuthGuardService implements CanActivate {
   }
 
   checkAuth(): boolean {
-    if (this._authService.isLoggedIn) { return true; }
+    if (this._httpAuthService.isLoggedIn) { return true; }
 
     this._router.navigate(['login']);
     return false;
