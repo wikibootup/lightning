@@ -7,7 +7,7 @@ var router = express.Router();
 var passport = new Passport();
 
 router.get('/', function(req, res) {
-  res.json(req.session.userProfile);
+  res.json(req.session['userProfile']);
 });
 
 router.get('/thingplus',
