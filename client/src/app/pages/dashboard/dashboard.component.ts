@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpGatewaysService } from '../../core/http/http-gateways.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DashboardComponent implements OnInit {
 
-  constructor() { }
+  private gateways: string;
+
+  constructor(private _httpGatewaysService: HttpGatewaysService) { }
 
   ngOnInit() {
+    this._httpGatewaysService.getGateways()
+      .subscribe(
+        data => { this.gateways = data; }
+      )
   }
 
 }

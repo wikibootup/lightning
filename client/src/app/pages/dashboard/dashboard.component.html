@@ -1,3 +1,5 @@
-<p>
-  dashboard works!
-</p>
+<ul>
+  <li *ngFor="let gateway of gateways">
+        {{ gateway | json }}
+  </li>
+</ul>
