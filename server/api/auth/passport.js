@@ -16,7 +16,7 @@ Passport.prototype.configureSession = function() {
   this.passport.serializeUser(function(user, cb) {
     cb(null, user);
   });
-  
+
   this.passport.deserializeUser(function(user, cb) {
     cb(null, user);
   });

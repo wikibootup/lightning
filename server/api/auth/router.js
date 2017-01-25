@@ -14,7 +14,9 @@ router.get('/thingplus',
   passport.passport.authenticate('thingplus', passport.getThingplusScope()));
 
 router.get('/thingplus/callback',
-  passport.passport.authenticate('thingplus', { failureRedirect: 'api/auth/thingplus/error' }),
+  passport.passport.authenticate(
+    'thingplus', 
+    { failureRedirect: '/api/auth/thingplus/error' }),
     function(req, res) {
       req.session.userProfile =  {
         id: req.user.id,
@@ -24,5 +26,9 @@ router.get('/thingplus/callback',
       res.redirect('/#/auth');
     }
 );
+
+router.get('/thingplus/error', function(req, res) {
+  res.send('Error occured in the Thingplus OAuth2 authentication');
+});
 
 module.exports = router;
