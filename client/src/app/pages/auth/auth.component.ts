@@ -25,11 +25,13 @@ export class AuthComponent implements OnInit {
     this._httpAuthService.getAuth()
       .subscribe(data => {
         if(data !== {} && data.hasOwnProperty('id') && data.hasOwnProperty('name')) {
-          this._userService.user = data;
-          this._httpAuthService.isLoggedIn = true;
+          localStorage.setItem('user', JSON.stringify(data));
+          localStorage.setItem('isLoggedIn', JSON.stringify('true'));
+
           this._router.navigate(['dashboard']);
         }
         else {
+          localStorage.clear();
           this._router.navigate(['/']);
         }
       })

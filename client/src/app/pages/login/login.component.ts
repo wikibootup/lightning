@@ -16,8 +16,8 @@ export class LoginComponent implements OnInit {
               private _httpAuthService: HttpAuthService) { }
 
   ngOnInit() {
-    if(this._httpAuthService.isLoggedIn) {
-      this._router.navigate(['/']);
+    if(JSON.parse(localStorage.getItem('isLoggedIn'))) {
+      this._router.navigate(['dashboard']);
     }
     else {
       window.location.href = this.authUri;
