@@ -4,12 +4,15 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { HashLocationStrategy, Location, LocationStrategy } from '@angular/common';
 
+
+
+import { AppRoutingModule } from './app.routing';
 import { PagesModule } from './pages/pages.module';
 import { CoreModule } from './core/core.module';
 import { ObjectsModule } from './objects/objects.module';
+import { ThemesModule } from './themes/themes.module';
 
 import { AppComponent } from './app.component';
-import { AppRoutingModule } from './app.routing';
 
 @NgModule({
   declarations: [
@@ -19,10 +22,11 @@ import { AppRoutingModule } from './app.routing';
     BrowserModule,
     FormsModule,
     HttpModule,
+    AppRoutingModule,
     PagesModule,
     CoreModule,
     ObjectsModule,
-    AppRoutingModule
+    ThemesModule
   ],
   providers: [
     Location, {
