@@ -1,3 +1,6 @@
+<button (click)='newBuilding()'>new building</button>
+<button (click)='getBuildings()'>get buildings</button>
+
 <ul>
   <li *ngFor="let gateway of gateways">
         {{ gateway | json }}
