@@ -5,6 +5,7 @@ import { AuthGuardService } from './auth/auth-guard.service';
 import { HttpAuthService } from './http/http-auth.service';
 import { HttpService } from './http/http.service';
 import { HttpGatewaysService } from './http/http-gateways.service';
+import { HttpBuildingsService } from './http/http-buildings.service';
 
 @NgModule({
   imports: [
@@ -15,7 +16,8 @@ import { HttpGatewaysService } from './http/http-gateways.service';
     AuthGuardService,
     HttpService,
     HttpAuthService,
-    HttpGatewaysService
+    HttpGatewaysService,
+    HttpBuildingsService
   ]
 })
 

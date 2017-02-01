@@ -12,6 +12,11 @@ export class HttpService {
       .map(this.extractData);
   }
 
+  postHttp(url, params, options) { 
+    return this._http.post(url, params, options)
+      .map(this.extractData);
+  }
+
   private extractData(res: Response) {
     let data = (res.text().replace(' ', '') !== '')? res.json() : {};
     return data;
