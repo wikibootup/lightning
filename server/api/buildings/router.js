@@ -6,7 +6,7 @@ var Buildings = require('./buildings');
 var router = express.Router();
 
 router.get('/', function(req, res) {
-  res.send('buildings works.');
+  res.json({name: 'smart building1'});
 });
 
 router.post('/new', function(req, res) {
@@ -17,7 +17,15 @@ router.post('/new', function(req, res) {
       res.status(400).send('There have been validation errors: ' + util.inspect(result.array()));
       return;
     }
-  res.json(Buildings.register(req.body));
+
+    if('buildings' in req.session) {
+      req.session['buildings'].concat(req.body);
+    }
+    else {
+      req.session['buildings'] = (new Array).concat(req.body);
+    }
+
+    res.send(req.session['buildings']);
   });
 });
 
