@@ -1,5 +1,7 @@
-<button (click)='newBuilding()'>new building</button>
-<button (click)='getBuildings()'>get buildings</button>
+<button (click)='onNewBuilding()'>new building</button>
+<button (click)='onGetBuildings()'>get buildings</button>
+<button (click)='onGetBuilding(123456)'>get building</button>
+<button (click)='onGetGatewaysOfBuilding(123456)'>get gateways of building</button>
 
 <ul>
   <li *ngFor="let gateway of gateways">

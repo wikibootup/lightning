@@ -21,17 +21,31 @@ export class DashboardComponent implements OnInit {
       )
   }
 
-  getBuildings(): void {
+  onGetBuildings(): void {
     this._httpBuildingsService.getBuildings()
       .subscribe(
         data => { console.log(data, 'clicked getBuildings'); }
       )
   }
-  
-  newBuilding(): void {
+
+  onGetBuilding(id): void {
+    this._httpBuildingsService.getBuilding(id)
+      .subscribe(
+        data => { console.log(data, 'clicked getBuilding'); }
+      )
+  }
+
+  onNewBuilding(): void {
     this._httpBuildingsService.newBuilding()
       .subscribe(
         data => { console.log(data, 'clicked new Building'); }
+      )
+  }
+
+  onGetGatewaysOfBuilding(id): void {
+    this._httpBuildingsService.getGatewaysOfBuilding(id)
+      .subscribe(
+        data => { console.log(data, 'clicked getGatewaysOfBuilding'); }
       )
   }
 

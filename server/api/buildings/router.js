@@ -6,7 +6,17 @@ var Buildings = require('./buildings');
 var router = express.Router();
 
 router.get('/', function(req, res) {
-  res.json({name: 'smart building1'});
+  res.json(req.session['buildings']);
+});
+
+router.get('/:id', function(req, res) {
+  var buildings = req.session['buildings'];
+  for (building in buildings) {
+    if(buildings[building]['id'] == req.params.id) {
+      res.json(buildings[building]);
+    }
+  }
+  res.json();
 });
 
 router.post('/new', function(req, res) {
@@ -27,6 +37,18 @@ router.post('/new', function(req, res) {
 
     res.send(req.session['buildings']);
   });
+});
+
+router.get('/:id/gateways', function(req, res) {
+  var buildings = req.session['buildings']; 
+  var building;
+
+  for (building in buildings) {
+    if(buildings[building]['id'] == req.params.id) {
+      building = buildings[building];
+    }
+  }
+  res.json(building['gateways']);
 });
 
 module.exports = router;
